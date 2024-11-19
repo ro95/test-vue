@@ -1,6 +1,8 @@
 <template>
   <p>Compteur : {{ count }}</p>
-  <div v-show="count > 6">Congrats vous avez cliqué plus de 6 fois</div>
+  <div v-if="count > 6">Congrats vous avez cliqué plus de 6 fois</div>
+  <div v-else>Vous avez cliqué moins de 6 fois</div>
+
   <button @click="increment">Increment</button>
   <button @click="decrement">Decrement</button>
 </template>
