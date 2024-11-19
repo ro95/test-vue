@@ -1,10 +1,15 @@
 <template>
-  <h1>Hello {{ fisrtNAme.toUpperCase() }}</h1>
-  <p>bien ou quoi ?</p>
+  <p>Compteur : {{ count }}</p>
+  <div v-show="count > 6">Congrats vous avez cliqué plus de 6 fois</div>
+  <button @click="increment">Increment</button>
+  <button @click="decrement">Decrement</button>
 </template>
 
 <script setup>
-const fisrtNAme = "John";
+import { ref } from "vue";
+const count = ref(0);
+const increment = (event) => count.value++;
+const decrement = () => count.value--;
 </script>
 
 <style>
