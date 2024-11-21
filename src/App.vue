@@ -5,6 +5,11 @@
   <button @click="increment">Increment</button>
   <button @click="decrement">Decrement</button>
   <button @click="SortMovie">Réorganiser</button>
+  <form action="" @submit.prevent="addMovie">
+    <input type="text" placeholder="New film" v-model="movieName" />
+    <button>Ajouter</button>
+  </form>
+  <hr />
   <ul>
     <li v-for="movie in movies" :key="movie">
       {{ movie }} <button @click="deleteMovie(movie)">Delete</button>
@@ -29,5 +34,11 @@ const deleteMovie = (movie) => {
 };
 const SortMovie = () => {
   movies.value.sort((a, b) => (a > b ? 1 : -1));
+};
+
+const movieName = ref("");
+const addMovie = () => {
+  movies.value.push(movieName.value);
+  movieName.value = "";
 };
 </script>
